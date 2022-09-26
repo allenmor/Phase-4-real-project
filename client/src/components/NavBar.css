@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+.nav-div {
+    border: 2px solid black;
+    background-color: rgb(255,255,255);
+
+}
+.nav-bar{
+    position: sticky;
+    top: 0;
+}
+.nav-title {
+    font-family: 'Dancing Script', cursive;
+}

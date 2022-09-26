@@ -1,0 +1,4 @@
+/client/node_modules
+/client/package-lock.json
+/server/log
+/server/db/development.sqlite3

@@ -1,0 +1,68 @@
+.posts-container{
+    width: 39%;
+    
+}
+
+.each-post {
+    border: 2px solid rgb(207, 207, 207);
+    width: 100%;
+    margin-top: 2em;
+    border-radius: 10px;
+    background-color: rgb(255,255,255);
+}
+.image-description {
+    width: 100%;
+}
+.post-user-info{
+    display: flex;
+    margin-bottom: 0.7em;
+    margin-top: 0.5em;
+}
+
+.post-user-info img{
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    margin-right: 1em;
+    margin-left: 0.5em;
+    padding: 0.18em;
+    border: 3px solid rgb(227,0,163);
+}
+.post-user-info p{
+    font-weight: bold;
+}
+.post-description{
+    left: 0;
+}
+.post-description span{
+    font-weight: bold;
+}
+.post-img {
+   width: 100%;
+}
+
+.view-comments{
+    cursor: pointer;
+}
+.comments-ul {
+    list-style: none;
+    padding: 0;
+}
+.comments-li{
+    margin-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.comments-username {
+    font-weight: bold;
+    margin-right: 0.45em;
+}
+
+.comments-user-img{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    margin-right: 0.45em;
+    margin-left: 0.5em;
+}

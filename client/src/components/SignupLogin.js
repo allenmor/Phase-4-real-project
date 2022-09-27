@@ -19,6 +19,7 @@ function SignupLogin() {
 
     function handleSignUpSubmit(e){
         e.preventDefault()
+        console.log(signUp)
         fetch('http://127.0.0.1:3000/newuser', {
             method: 'POST',
             headers: {
@@ -30,6 +31,16 @@ function SignupLogin() {
         .then(data => {
             console.log(data)
             setSignUp(initialSignup)
+            sessionStorage.setItem("jwt", data.token)
+            // console.log(data)
+            setUser({
+                ...user,
+                id: data.user.id,
+                name: data.user.name,
+                bio: data.user.bio,
+                // posts: data.user.posts,
+                profile_image: data.user.profile_image
+            })
         })
     }
 
@@ -57,10 +68,11 @@ function SignupLogin() {
             // console.log(data)
             setUser({
                 ...user,
+                id: data.user.id,
                 name: data.user.name,
                 bio: data.user.bio,
-                posts: data.user.posts,
-                profile_image: data.user.posts
+                // posts: data.user.posts,
+                profile_image: data.user.profile_image
             })
         })
     }
@@ -115,11 +127,11 @@ function SignupLogin() {
           </div>
         </div>
       </div>
-
       <p className="text-under">
         Shmeta About Blog Jobs Help API Privacy Terms Top Accounts Hashtags
         Locations Chatter Lite Contact Uploading & Non-Users Dance Food &
-        Drink Home & Garden Music Visual Arts 
+        Drink Home & Garden Music Visual Arts English © 2022 Chatter from Shmeta
+
       </p>
         <p className="text-under">English © 2022 Chatter from Shmeta</p>
     </div>

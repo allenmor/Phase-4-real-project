@@ -66,3 +66,39 @@
     margin-right: 0.45em;
     margin-left: 0.5em;
 }
+
+.view-comments {
+    color: gray;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.add-comment{
+    border: none;
+    border-top: 1px solid rgb(211, 208, 208);
+}
+
+.input-comment{
+    width: 98%;
+    border: none;
+}
+
+.input-comment:focus{
+    outline: none;
+}.comment-form {
+    display: flex;
+    margin-top: 0.5em;
+}
+
+.comment-post-button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    margin-right: 0.4em;
+    font-weight: bold;
+    color: blue;
+}

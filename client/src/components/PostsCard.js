@@ -2,12 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./Post.css";
 
-function PostsCard({ post }) {
+function PostsCard({ post, userId }) {
 
     const [comments, setComments] = useState([])
     const [firstClicked, setFirstClicked] = useState(true)
     const [showComments, setShowComments] = useState(false)
+    let initalComment = {post_id: '', user_id: '', description: ''}
+    const [commentInput, setCommentInput] = useState(initalComment)
 
+    // VIEW COMMENTS
     function handleCommentClick(){
         setShowComments(prev => !prev)
         if (firstClicked) {
@@ -16,11 +19,42 @@ function PostsCard({ post }) {
             .then(data => {
                 setComments(data)
                 setFirstClicked(false)
-                console.log(data)
             })
 
         }
     }
+
+
+    // CREATE NEW COMMENT ADD COMMENT 
+
+    function handleCommentChange(e){
+      // console.log(e.target.value)
+      setCommentInput({
+        ...commentInput,
+        post_id: post.id,
+        user_id: userId,
+        description: e.target.value
+      })
+    }
+
+    function handleCommentSubmit(e){
+      e.preventDefault()
+      fetch('http://127.0.0.1:3000/newcomment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(commentInput)
+        })
+        .then(res => res.json())
+        .then(data => {
+          // console.log(commentInput)
+            setComments([...comments, data])
+            setCommentInput(initalComment)
+          })
+          post.number_of_comments += 1
+    }
+
 
 
   return (
@@ -40,6 +74,12 @@ function PostsCard({ post }) {
                 return <li className="comments-li" key={i}><img className="comments-user-img" src={el.user.profile_image}></img><span className="comments-username">{el.user.name}</span>{el.description}</li>
             })}
         </ul>
+        <div className="add-comment">
+          <form className="comment-form" onSubmit={handleCommentSubmit}>
+            <input value={commentInput.description} onChange={handleCommentChange} name='description' placeholder="Add a comment..." className="input-comment"></input>
+            <input className="comment-post-button" type="submit" value="Post"/>
+          </form>
+        </div>
       </div>
     </div>
   );

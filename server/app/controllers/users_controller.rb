@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
 # GET ALL USERS 
 
@@ -9,18 +9,14 @@ class UsersController < ApplicationController
     end
     # SIGN UP NEW USER
     def newuser
-        user = User.create(
+        user = User.create!(
             name: params[:name],
             password: params[:password],
             profile_image: 'https://www.pngitem.com/pimgs/m/110-1108526_blank-face-png-high-quality-image-circle-transparent.png',
-            posts: 0,
             bio: ''
         )
-        if user.valid?
-            render json: user, status: :ok
-        else
-            render json: {error: "Name Taken"}
-        end
+        token = encode(user.id)
+        render json: {user: user, token: token}
     end
 
     def login
@@ -37,12 +33,12 @@ class UsersController < ApplicationController
     def me
         token = request.headers['token']
         user_id = decode(token)
-        if user_id
-            user = User.find(user_id)
-            render json: user, status: :ok
-        else
-            render json: {error: 'blah'}
-
-        end
+        user = User.find_by!(id: user_id)
+        render json: user
     end
+
+    private
+    def render_unprocessable_entity_response(invalid)
+        render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity
+      end
 end

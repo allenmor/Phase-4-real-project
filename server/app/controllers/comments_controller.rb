@@ -11,4 +11,14 @@ class CommentsController < ApplicationController
         comments = post.comments
         render json: comments
     end
+
+    def new_comment
+        comment = Comment.create(comment_params)
+        render json: comment
+    end
+
+    private
+    def comment_params
+        params.permit(:post_id, :user_id, :description)
+    end
 end

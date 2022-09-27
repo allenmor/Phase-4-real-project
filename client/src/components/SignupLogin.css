@@ -58,6 +58,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 1em;
+    align-items: center;
 }
 .login-form label{
     display: block;
@@ -72,6 +73,9 @@
     margin-top: 2em;
     padding-bottom: 1em;
     background-color: rgb(243, 243, 243);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .signup-title span{
@@ -97,5 +101,7 @@
      margin-right: 22em;
      word-spacing: 15px;
      line-height: 30px;
-
+     text-align: center;
  }
+
+

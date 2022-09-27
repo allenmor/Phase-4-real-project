@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 
 function Profile({setUser, user}) {
 
+
     useEffect(() => {
         let token = sessionStorage.getItem('jwt')
         if(token && !user.name) {
@@ -19,7 +20,10 @@ function Profile({setUser, user}) {
             })
             .then(res => res.json())
             .then(data => {
+               
                 setUser({
+                    ...user,
+                    id: data.id,
                     name: data.name,
                     bio: data.bio,
                     posts: data.posts,
@@ -30,10 +34,11 @@ function Profile({setUser, user}) {
     },[])
 
 
+
   return (
     <div className='profile-div' style={user.name ? {display: 'flex'} : {display: 'none'}}>
         <NavBar />
-        <Posts user={user}/>
+        <Posts userId={user.id}/>
         <p>suggestion</p>
         </div>
   )

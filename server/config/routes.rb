@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/posts', to: 'posts#index'
   get '/comments', to: 'comments#index'
   get '/postcomments/:id', to: 'comments#post_comments'
+  post '/newcomment', to: 'comments#new_comment'
 end

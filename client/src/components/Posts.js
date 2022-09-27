@@ -13,6 +13,7 @@ function Posts({userId}) {
         .then(res => res.json())
         .then(data => {
             setPosts(data)
+            console.log(data)
         })
     },[])
 

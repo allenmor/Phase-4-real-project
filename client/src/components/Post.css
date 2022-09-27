@@ -47,6 +47,9 @@
 .comments-ul {
     list-style: none;
     padding: 0;
+    max-height: 13em;
+    overflow-x: scroll;
+    overflow-x: hidden;
 }
 .comments-li{
     margin-bottom: 0.5em;
@@ -101,4 +104,22 @@
     margin-right: 0.4em;
     font-weight: bold;
     color: blue;
+}
+
+.likes-amount {
+    display: flex;
+    align-items: center;
+}
+.likes-amount img {
+    margin-right: 0.3em;
+    margin-left: 0.15em;
+}
+.likes-first-name {
+    font-weight: bold;
+}
+
+.liked-profile-img {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
 }

@@ -13,12 +13,14 @@ class CommentsController < ApplicationController
     end
 
     def new_comment
-        comment = Comment.create(comment_params)
+        token = request.headers['token']
+        user_id = decode(token)
+        comment = Comment.create(
+            post_id: params[:post_id],
+            user_id: user_id,
+            description: params[:description]
+        )
         render json: comment
     end
 
-    private
-    def comment_params
-        params.permit(:post_id, :user_id, :description)
-    end
 end

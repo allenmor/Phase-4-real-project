@@ -9,6 +9,7 @@ function PostsCard({ post, userId }) {
     const [showComments, setShowComments] = useState(false)
     let initalComment = {post_id: '', user_id: '', description: ''}
     const [commentInput, setCommentInput] = useState(initalComment)
+    const [likes, setLikes] = useState(post.number_of_likes)
 
     // VIEW COMMENTS
     function handleCommentClick(){
@@ -17,7 +18,7 @@ function PostsCard({ post, userId }) {
             fetch(`http://127.0.0.1:3000/postcomments/${post.id}`)
             .then(res => res.json())
             .then(data => {
-                setComments(data)
+                setComments(data.reverse())
                 setFirstClicked(false)
             })
 
@@ -32,7 +33,6 @@ function PostsCard({ post, userId }) {
       setCommentInput({
         ...commentInput,
         post_id: post.id,
-        user_id: userId,
         description: e.target.value
       })
     }
@@ -42,6 +42,7 @@ function PostsCard({ post, userId }) {
       fetch('http://127.0.0.1:3000/newcomment', {
             method: 'POST',
             headers: {
+                token: sessionStorage.getItem('jwt'),
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(commentInput)
@@ -49,13 +50,28 @@ function PostsCard({ post, userId }) {
         .then(res => res.json())
         .then(data => {
           // console.log(commentInput)
-            setComments([...comments, data])
+            setComments([data, ...comments])
+            console.log(data)
             setCommentInput(initalComment)
           })
           post.number_of_comments += 1
     }
 
-
+    function handleLikeClicked(){
+      fetch('http://127.0.0.1:3000/newlike', {
+            method: 'POST',
+            headers: {
+                token: sessionStorage.getItem('jwt'),
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ post_id: post.id})
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          setLikes(likes + 1)
+        })
+    }
 
   return (
     <div className="each-post">
@@ -65,6 +81,9 @@ function PostsCard({ post, userId }) {
       </div>
       <div className="image-description">
         <img className="post-img" src={post.post_image}></img>
+        <button onClick={handleLikeClicked}>Like</button>
+        {likes === 0 ? <p></p> : <p className="likes-amount"><img className="liked-profile-img" src={post.user.profile_image}></img>Liked by&nbsp;<span className="likes-first-name">{post.first_liked.name}</span>&nbsp;and {likes >= 1 ?  likes - 1 : likes} others</p> }
+       
         <p className="post-description">
           <span>{post.user.name}</span> &nbsp;{post.description}
         </p>

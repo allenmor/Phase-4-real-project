@@ -1,0 +1,16 @@
+.create-post-container {
+    display: flex;
+    margin-top: 5em;
+    border: 3px solid black;
+    margin-bottom: 30em;
+}
+
+.create-post-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-post-container input {
+    margin-bottom: 1em;
+}
+

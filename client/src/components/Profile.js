@@ -3,16 +3,17 @@ import {useState, useEffect} from 'react';
 import './Profile.css'
 import NavBar from './NavBar';
 import Posts from './Posts';
-import { Route, Routes } from 'react-router-dom';
+import CreatePost from './CreatePost';
 
 
 function Profile({setUser, user}) {
 
+    const [createClicked, setCreateClicked] = useState(false)
 
     useEffect(() => {
         let token = sessionStorage.getItem('jwt')
         if(token && !user.name) {
-            fetch('http://127.0.0.1:3000/me', {
+            fetch('http://10.129.2.23:8080/me', {
                 headers: {
                     token: token,
                     'Content-Type': 'application/json'
@@ -37,8 +38,9 @@ function Profile({setUser, user}) {
 
   return (
     <div className='profile-div' style={user.name ? {display: 'flex'} : {display: 'none'}}>
-        <NavBar />
-        <Posts userId={user.id}/>
+        <NavBar createClicked={createClicked} setCreateClicked={setCreateClicked}/>
+        <CreatePost setCreateClicked={setCreateClicked} createClicked={createClicked}/>
+        <Posts createClicked={createClicked} setCreateClicked={setCreateClicked} userId={user.id}/>
         <p>suggestion</p>
         </div>
   )

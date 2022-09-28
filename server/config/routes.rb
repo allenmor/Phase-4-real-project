@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/postcomments/:id', to: 'comments#post_comments'
   post '/newcomment', to: 'comments#new_comment'
   post '/newlike', to: 'likes#new_like'
+  post '/newpost', to: 'posts#new_post'
 end

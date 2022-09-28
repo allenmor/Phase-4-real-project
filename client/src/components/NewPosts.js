@@ -7,7 +7,7 @@ function NewPosts() {
     const [newPostUsers, setNewPostUsers] = useState([])
 
     useEffect(() => {
-        fetch('http://127.0.0.1:3000/users')
+        fetch('http://10.129.2.23:8080/users')
         .then(res => res.json())
         .then(data => {
             setNewPostUsers(data)

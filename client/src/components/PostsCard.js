@@ -15,7 +15,7 @@ function PostsCard({ post, userId }) {
     function handleCommentClick(){
         setShowComments(prev => !prev)
         if (firstClicked) {
-            fetch(`http://127.0.0.1:3000/postcomments/${post.id}`)
+            fetch(`http://10.129.2.23:8080//postcomments/${post.id}`)
             .then(res => res.json())
             .then(data => {
                 setComments(data.reverse())
@@ -39,7 +39,7 @@ function PostsCard({ post, userId }) {
 
     function handleCommentSubmit(e){
       e.preventDefault()
-      fetch('http://127.0.0.1:3000/newcomment', {
+      fetch('http://10.129.2.23:8080/newcomment', {
             method: 'POST',
             headers: {
                 token: sessionStorage.getItem('jwt'),
@@ -58,7 +58,7 @@ function PostsCard({ post, userId }) {
     }
 
     function handleLikeClicked(){
-      fetch('http://127.0.0.1:3000/newlike', {
+      fetch('http://10.129.2.23:8080/newlike', {
             method: 'POST',
             headers: {
                 token: sessionStorage.getItem('jwt'),
@@ -73,6 +73,8 @@ function PostsCard({ post, userId }) {
         })
     }
 
+
+
   return (
     <div className="each-post">
       <div className="post-user-info">
@@ -81,7 +83,7 @@ function PostsCard({ post, userId }) {
       </div>
       <div className="image-description">
         <img className="post-img" src={post.post_image}></img>
-        <button onClick={handleLikeClicked}>Like</button>
+        <button className='like-btn' onClick={handleLikeClicked}>&#x2665;</button>
         {likes === 0 ? <p></p> : <p className="likes-amount"><img className="liked-profile-img" src={post.user.profile_image}></img>Liked by&nbsp;<span className="likes-first-name">{post.first_liked.name}</span>&nbsp;and {likes >= 1 ?  likes - 1 : likes} others</p> }
        
         <p className="post-description">

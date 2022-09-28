@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 .nav-div {
-    border: 2px solid black;
+    border: 1px solid rgb(203, 202, 202);
     background-color: rgb(255,255,255);
     height: 53.9em;
-
+    width: 15em;
+    border-top: none;
+    border-bottom: none;
 }
 .other-nav-div {
-    border: 2px solid black;
+    border: 1px solid rgb(203, 202, 202);
     background-color: rgb(255,255,255);
-    /* height: 53.9em; */
-
+    width: 15em;
+    border-top: none;
+    border-bottom: none;
 }
 .nav-bar{
     position: sticky;
@@ -18,4 +21,60 @@
 }
 .nav-title {
     font-family: 'Dancing Script', cursive;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 1em;
+    margin-top: 0.9em;
+    margin-bottom: 1.5em;
+}
+
+.nav-bar h2 {
+    font-size: 1em;
+    margin-left: 1.5em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.nav-bar h2:hover {
+    background-color: rgb(250,250,250);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-link {
+    cursor: pointer;
+
+}
+.home-link {
+    cursor: pointer;
+
+}
+
+.home-symbol {
+    font-size: 2em;
+    margin-right: 0.45em;
+}
+
+.magnify-symbol {
+    font-size: 1.4em;
+    margin-right: 0.45em;
+}
+.plane-symbol {
+    font-size: 2em;
+    margin-right: 0.45em;
+}
+.heart-symbol {
+    font-size: 1.3em;
+    margin-right: 0.45em;
+    color: red;
+}
+.plus-symbol {
+    font-size: 1.7em;
+    margin-right: 0.45em;
+}
+.nav-img {
+    width: 2.5em;
+    border-radius: 50%;
+    margin-right: 0.45em;
 }

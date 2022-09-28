@@ -15,7 +15,7 @@ function PostsCard({ post, userId }) {
     function handleCommentClick(){
         setShowComments(prev => !prev)
         if (firstClicked) {
-            fetch(`http://10.129.2.23:8080//postcomments/${post.id}`)
+            fetch(`http://10.129.2.23:8080/postcomments/${post.id}`)
             .then(res => res.json())
             .then(data => {
                 setComments(data.reverse())
@@ -74,6 +74,7 @@ function PostsCard({ post, userId }) {
     }
 
 
+    
 
   return (
     <div className="each-post">

@@ -4,7 +4,7 @@ import NewPosts from './NewPosts';
 import './Post.css'
 import { useEffect, useState } from 'react';
 
-function Posts({userId, createClicked, setCreateClicked}) {
+function Posts({userId, createClicked}) {
 
     const [posts, setPosts] = useState([])
     
@@ -13,7 +13,6 @@ function Posts({userId, createClicked, setCreateClicked}) {
         .then(res => res.json())
         .then(data => {
             setPosts(data.reverse())
-            console.log(data)
         })
     },[createClicked])
 

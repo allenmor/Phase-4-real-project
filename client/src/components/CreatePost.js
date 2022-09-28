@@ -37,9 +37,9 @@ function CreatePost({createClicked, setCreateClicked}) {
   return (
     <div style={!createClicked ? {display: 'none'} : {display: 'block'}} className='create-post-container'>
         <form onSubmit={handleSubmit}>
-            <input onChange={handleChange} name='post_image' value={postObj.post_image} placeholder='Image' type='text'></input>
-            <input onChange={handleChange} name='description' value={postObj.description} placeholder='Description' type='text'></input>
-            <input value='Submit' type='submit'></input>
+            <input className='post-input' onChange={handleChange} name='post_image' value={postObj.post_image} placeholder='Image' type='text'></input>
+            <input className='post-input' onChange={handleChange} name='description' value={postObj.description} placeholder='Description' type='text'></input>
+            <input className='submit-post' value='Submit' type='submit'></input>
         </form>
     </div>
   )

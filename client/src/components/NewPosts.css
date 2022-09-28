@@ -1,32 +1,38 @@
 .container {
-    border: 2px solid rgb(207, 207, 207);
+    border: 1px solid rgb(207, 207, 207);
     display: flex;
     border-radius: 10px;
-    margin-top: 2.5em;
+    margin-top: 1.7em;
     overflow: scroll;
     overflow-y:hidden;
     width: 85%;
 
 }
 
+.container::-webkit-scrollbar {
+    display: none;
+}
+
 .each-user-card {
     display: flex;
-    margin-left: 0.3em;
+    margin: 0.9em;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 0.3em;
 }
 
 .each-user-card img{
-
     width: 3.3em;
     height: 3.3em;
     border-radius: 50%;
     margin-top: 0.3em;
     padding: 0.18em;
-    border: 3px solid rgb(227,0,163);
+    border: 2px solid rgb(227,0,163);
 }
+
 .each-user-card p {
     margin-top: 0.2em;
     font-weight: bold;
     padding-bottom: 0.18em;
+    margin-bottom: 0;
 }

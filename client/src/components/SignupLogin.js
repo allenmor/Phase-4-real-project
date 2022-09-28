@@ -4,17 +4,21 @@ import "./SignupLogin.css";
 import Profile from "./Profile";
 
 function SignupLogin() {
+
+  // window.location.reload(false);
+  
+  
     let initialSignup = {name: '', password: ''}
     const [signUp, setSignUp] = useState(initialSignup)
     const [logIn, setLogIn] = useState(initialSignup)
     const [user, setUser] = useState({name: ""})
+
 
     function handleSignUpChange(e) {
         setSignUp({
             ...signUp,
             [e.target.name]: e.target.value
         })
-        console.log(signUp)
     }
 
     function handleSignUpSubmit(e){
@@ -32,13 +36,11 @@ function SignupLogin() {
             console.log(data)
             setSignUp(initialSignup)
             sessionStorage.setItem("jwt", data.token)
-            // console.log(data)
             setUser({
                 ...user,
                 id: data.user.id,
                 name: data.user.name,
                 bio: data.user.bio,
-                // posts: data.user.posts,
                 profile_image: data.user.profile_image
             })
         })
@@ -64,14 +66,13 @@ function SignupLogin() {
         })
         .then(res => res.json())
         .then(data => {
+          console.log(data)
             sessionStorage.setItem("jwt", data.token)
-            // console.log(data)
             setUser({
                 ...user,
                 id: data.user.id,
                 name: data.user.name,
                 bio: data.user.bio,
-                // posts: data.user.posts,
                 profile_image: data.user.profile_image
             })
         })

@@ -6,9 +6,11 @@ import Posts from './Posts';
 import CreatePost from './CreatePost';
 
 
+
 function Profile({setUser, user}) {
 
     const [createClicked, setCreateClicked] = useState(false)
+
 
     useEffect(() => {
         let token = sessionStorage.getItem('jwt')
@@ -21,7 +23,7 @@ function Profile({setUser, user}) {
             })
             .then(res => res.json())
             .then(data => {
-               
+               console.log(data)
                 setUser({
                     ...user,
                     id: data.id,
@@ -30,15 +32,14 @@ function Profile({setUser, user}) {
                     posts: data.posts,
                     profile_image: data.posts
                 })
+                console.log(user)
             })
         }
     },[])
 
-
-
   return (
     <div className='profile-div' style={user.name ? {display: 'flex'} : {display: 'none'}}>
-        <NavBar createClicked={createClicked} setCreateClicked={setCreateClicked}/>
+        <NavBar user ={user}createClicked={createClicked} setCreateClicked={setCreateClicked}/>
         <CreatePost setCreateClicked={setCreateClicked} createClicked={createClicked}/>
         <Posts createClicked={createClicked} setCreateClicked={setCreateClicked} userId={user.id}/>
         <p>suggestion</p>

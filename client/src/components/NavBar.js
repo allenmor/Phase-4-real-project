@@ -13,6 +13,7 @@ function NavBar({createClicked, setLoggedInUser,setCreateClicked, user}) {
 
   function handleHomeClick() {
     setCreateClicked(false)
+    navigate(`/profile`);
   }
 
   function handleLogoutClick() {
@@ -24,13 +25,6 @@ function NavBar({createClicked, setLoggedInUser,setCreateClicked, user}) {
   function editProfileClick(){
     navigate(`/editprofile`);
   }
-  useEffect(()=>{
-    console.log(user);
-  if (user.name){
-    console.log("here");
-    navigate("/profile")
-  }
-  },[user])
   return (
     <div className='other-nav-div'>
         <div className='nav-bar'>

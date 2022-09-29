@@ -5,8 +5,8 @@
     margin-top: 1.7em;
     overflow: scroll;
     overflow-y:hidden;
-    width: 85%;
-
+    width: 59%;
+    margin-left: 9em;
 }
 
 .container::-webkit-scrollbar {

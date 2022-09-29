@@ -1,0 +1,18 @@
+.profile-div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-edit {
+    display: flex;
+}
+
+.profile-edit img {
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+}
+.posts-follow {
+    display: flex;
+}

@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 import './NavBar.css'
 
-function NavBar({createClicked, setCreateClicked, user}) {
+function NavBar({createClicked, setLoggedInUser,setCreateClicked, user}) {
 
   const navigate = useNavigate();
 
@@ -17,13 +17,20 @@ function NavBar({createClicked, setCreateClicked, user}) {
 
   function handleLogoutClick() {
     sessionStorage.clear();
+    setLoggedInUser({name: ""})
     navigate(`/`);
   }
 
   function editProfileClick(){
     navigate(`/editprofile`);
   }
-
+  useEffect(()=>{
+    console.log(user);
+  if (user.name){
+    console.log("here");
+    navigate("/profile")
+  }
+  },[user])
   return (
     <div className='other-nav-div'>
         <div className='nav-bar'>

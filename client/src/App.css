@@ -3,7 +3,10 @@
 .App {
   font-family: 'Quicksand', sans-serif;
 }
-
+.app-div {
+  display: flex;
+  max-width: 100vw;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

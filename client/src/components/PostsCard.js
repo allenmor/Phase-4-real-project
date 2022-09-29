@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./Post.css";
 
-function PostsCard({ post, userId }) {
+function PostsCard({ post, userId, user }) {
 
     const [comments, setComments] = useState([])
     const [firstClicked, setFirstClicked] = useState(true)
@@ -74,7 +74,7 @@ function PostsCard({ post, userId }) {
     }
 
 
-    console.log(post)
+    console.log(post.user.profile_image)
 
     
 
@@ -87,7 +87,7 @@ function PostsCard({ post, userId }) {
       <div className="image-description">
         <img className="post-img" src={post.post_image}></img>
         <button className='like-btn' onClick={handleLikeClicked}>&#x2665;</button>
-        {likes === 0 ? <p></p> : <p className="likes-amount"><img className="liked-profile-img" src={post.user.profile_image}></img>Liked by&nbsp;<span className="likes-first-name">{post.first_liked.name}</span>&nbsp;and {likes >= 1 ?  likes - 1 : likes} others</p> }
+        {likes === 0 ? <p></p> : <p className="likes-amount"><img className="liked-profile-img" src={user.profile_image}></img>Liked by&nbsp;<span className="likes-first-name">{user.name}</span>&nbsp;and {likes >= 1 ?  likes - 1 : likes} others</p> }
        
         <p className="post-description">
           <span>{post.user.name}</span> &nbsp;{post.description}

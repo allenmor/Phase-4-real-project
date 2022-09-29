@@ -1,12 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./SignupLogin.css";
+import { Link } from "react-router-dom";
 import Profile from "./Profile";
 
-function SignupLogin() {
-
-  // window.location.reload(false);
-  
+function SignupLogin({setLoggedInUser}) {
   
     let initialSignup = {name: '', password: ''}
     const [signUp, setSignUp] = useState(initialSignup)
@@ -75,6 +73,13 @@ function SignupLogin() {
                 bio: data.user.bio,
                 profile_image: data.user.profile_image
             })
+            setLoggedInUser({
+                ...user,
+                id: data.user.id,
+                name: data.user.name,
+                bio: data.user.bio,
+                profile_image: data.user.profile_image
+            })
         })
     }
     
@@ -110,7 +115,7 @@ function SignupLogin() {
             <form onSubmit={handleSignUpSubmit} className="sign-up-form">
               <label><input className="input-field" onChange={handleSignUpChange} type="text" name="name" value={signUp.name} placeholder="Name" /></label>
               <label><input className="input-field" onChange={handleSignUpChange} type="text" name='password'value={signUp.password}placeholder="Password" /></label>
-              <label><input className="login-btn" value='Sign up' type="submit" placeholder="Submit" /></label>
+              <Link to='/profile'><label><input className="login-btn" value='Sign up' type="submit" placeholder="Submit" /></label></Link>
             </form>
           </div>
           <div className="get-app">

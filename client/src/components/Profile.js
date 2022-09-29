@@ -10,6 +10,7 @@ import CreatePost from './CreatePost';
 function Profile({setUser, user}) {
 
     const [createClicked, setCreateClicked] = useState(false)
+    const [submitClicked, setSubmitClicked] = useState(false)
 
 
     useEffect(() => {
@@ -39,8 +40,8 @@ function Profile({setUser, user}) {
   return (
     <div className='profile-div' style={user.name ? {display: 'flex'} : {display: 'none'}}>
         <NavBar user ={user}createClicked={createClicked} setCreateClicked={setCreateClicked}/>
-        <CreatePost setCreateClicked={setCreateClicked} createClicked={createClicked}/>
-        <Posts createClicked={createClicked} setCreateClicked={setCreateClicked} userId={user.id}/>
+        <CreatePost setSubmitClicked={setSubmitClicked} setCreateClicked={setCreateClicked} createClicked={createClicked}/>
+        <Posts user={user} submitClicked={submitClicked} createClicked={createClicked} setCreateClicked={setCreateClicked} userId={user.id}/>
         <p>suggestion</p>
         </div>
   )

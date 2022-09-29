@@ -4,7 +4,7 @@ import NewPosts from './NewPosts';
 import './Post.css'
 import { useEffect, useState } from 'react';
 
-function Posts({userId, createClicked}) {
+function Posts({userId, user, createClicked, submitClicked}) {
 
     const [posts, setPosts] = useState([])
     
@@ -15,14 +15,14 @@ function Posts({userId, createClicked}) {
             setPosts(data.reverse())
             console.log(data)
         })
-    },[createClicked])
+    },[createClicked, submitClicked])
 
 
   return (
     <div className='posts-container'>
         <NewPosts />
         {posts.map((el, i) => {
-            return <PostsCard userId={userId} post={el} key={i}/>
+            return <PostsCard user={user} userId={userId} post={el} key={i}/>
         })}
     </div>
   )

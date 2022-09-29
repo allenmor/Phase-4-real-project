@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import './CreatePost.css'
 
-function CreatePost({createClicked, setCreateClicked}) {
+function CreatePost({createClicked, setCreateClicked, setSubmitClicked}) {
     
     let initialObj = {post_image: '', description: ''}
     const [postObj, setPostObj] = useState(initialObj)
@@ -12,7 +12,6 @@ function CreatePost({createClicked, setCreateClicked}) {
             ...postObj,
             [e.target.name]: e.target.value
         })
-        // console.log(postObj)
     }
 
     function handleSubmit(e) {
@@ -28,10 +27,11 @@ function CreatePost({createClicked, setCreateClicked}) {
         .then(res => res.json())
         .then(data => {
             setPostObj(initialObj)
+            setSubmitClicked(prev => !prev)
         })
-        console.log(createClicked)
+        // console.log(createClicked)
         setCreateClicked(false)
-        console.log(createClicked)
+        // console.log(createClicked)
     }
 
 

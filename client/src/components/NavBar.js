@@ -22,6 +22,7 @@ function NavBar({createClicked, setCreateClicked, user}) {
         <h2><span className='heart-symbol'>&#9829;</span> Notifications</h2>
         <h2 className='create-link' onClick={handleCreateClicked}><span className='plus-symbol'>&#43;</span> Create</h2>
         <h2><img className='nav-img' src={user.profile_image}></img>Profile</h2>
+        <h2 className='logout-btn'>Logout</h2>
         </div>
     </div>
   )

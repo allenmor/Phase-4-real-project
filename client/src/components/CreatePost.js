@@ -29,13 +29,16 @@ function CreatePost({createClicked, setCreateClicked}) {
         .then(data => {
             setPostObj(initialObj)
         })
+        console.log(createClicked)
         setCreateClicked(false)
+        console.log(createClicked)
     }
 
 
 
   return (
     <div style={!createClicked ? {display: 'none'} : {display: 'block'}} className='create-post-container'>
+        <h2 className='h2-create-post'>Create Post</h2>
         <form onSubmit={handleSubmit}>
             <input className='post-input' onChange={handleChange} name='post_image' value={postObj.post_image} placeholder='Image' type='text'></input>
             <input className='post-input' onChange={handleChange} name='description' value={postObj.description} placeholder='Description' type='text'></input>

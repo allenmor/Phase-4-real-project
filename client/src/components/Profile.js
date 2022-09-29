@@ -30,9 +30,8 @@ function Profile({setUser, user}) {
                     name: data.name,
                     bio: data.bio,
                     posts: data.posts,
-                    profile_image: data.posts
+                    profile_image: data.profile_image
                 })
-                console.log(user)
             })
         }
     },[])

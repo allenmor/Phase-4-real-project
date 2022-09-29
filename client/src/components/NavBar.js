@@ -13,7 +13,7 @@ function NavBar({createClicked, setCreateClicked, user}) {
 
 
   return (
-    <div className={createClicked ? 'nav-div' : 'other-nav-div'}>
+    <div className='other-nav-div'>
         <div className='nav-bar'>
         <h1 onClick={handleHomeClick} className='nav-title'>Chatter</h1>
         <h2 className='home-link' onClick={handleHomeClick}><span className='home-symbol'>&#x2302;</span> Home</h2>

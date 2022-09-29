@@ -74,6 +74,8 @@ function PostsCard({ post, userId }) {
     }
 
 
+    console.log(post)
+
     
 
   return (

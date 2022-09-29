@@ -13,12 +13,13 @@ function Posts({userId, createClicked}) {
         .then(res => res.json())
         .then(data => {
             setPosts(data.reverse())
+            console.log(data)
         })
     },[createClicked])
 
 
   return (
-    <div style={createClicked ? {display: 'none'} : {display: 'block'}} className='posts-container'>
+    <div className='posts-container'>
         <NewPosts />
         {posts.map((el, i) => {
             return <PostsCard userId={userId} post={el} key={i}/>

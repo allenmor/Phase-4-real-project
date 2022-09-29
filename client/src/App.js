@@ -12,9 +12,10 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<SignupLogin setLoggedInUser={setLoggedInUser}/>}/>
-      <Route path='/profile' element={<Profile />}/>
+      <Route path='/profile' element={<Profile setUser={setLoggedInUser} user={loggedInUser}/>}/>
     </Routes>
   );
 }
+{/* <Profile setUser={setUser} user={user} /> */}
 
 export default App;

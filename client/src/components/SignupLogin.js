@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./SignupLogin.css";
-import { Link } from "react-router-dom";
-import Profile from "./Profile";
+import { Link, useNavigate } from "react-router-dom";
+// import Profile from "./Profile";
 
 function SignupLogin({setLoggedInUser}) {
   
@@ -10,7 +10,7 @@ function SignupLogin({setLoggedInUser}) {
     const [signUp, setSignUp] = useState(initialSignup)
     const [logIn, setLogIn] = useState(initialSignup)
     const [user, setUser] = useState({name: ""})
-
+    const navigate = useNavigate();
 
     function handleSignUpChange(e) {
         setSignUp({
@@ -41,6 +41,7 @@ function SignupLogin({setLoggedInUser}) {
                 bio: data.user.bio,
                 profile_image: data.user.profile_image
             })
+            navigate(`/profile`);
         })
     }
 
@@ -80,6 +81,8 @@ function SignupLogin({setLoggedInUser}) {
                 bio: data.user.bio,
                 profile_image: data.user.profile_image
             })
+            console.log(user)
+            navigate(`/profile`);
         })
     }
     
@@ -88,7 +91,7 @@ function SignupLogin({setLoggedInUser}) {
 
   return (
       <>
-      <Profile setUser={setUser} user={user} />
+      {/* <Profile setUser={setUser} user={user} /> */}
     <div style={ user.name ? {display: 'none'} : {display: 'block'}} className="with-letters">
       <div className="signup-page">
         <img
@@ -106,7 +109,9 @@ function SignupLogin({setLoggedInUser}) {
                 <input className="input-field" onChange={handleLogInChange} name='password' value={logIn.password} type="text" placeholder="Password" />
               </label>
               <label>
-                <input className="login-btn" type="submit" value='Log In' placeholder="Submit" />
+              {/* <Link to='/profile'> */}
+            <input className="login-btn" type="submit" value='Log In' placeholder="Submit" />
+              {/* </Link> */}
               </label>
             </form>
           </div>
@@ -115,7 +120,7 @@ function SignupLogin({setLoggedInUser}) {
             <form onSubmit={handleSignUpSubmit} className="sign-up-form">
               <label><input className="input-field" onChange={handleSignUpChange} type="text" name="name" value={signUp.name} placeholder="Name" /></label>
               <label><input className="input-field" onChange={handleSignUpChange} type="text" name='password'value={signUp.password}placeholder="Password" /></label>
-              <Link to='/profile'><label><input className="login-btn" value='Sign up' type="submit" placeholder="Submit" /></label></Link>
+              <label><input className="login-btn" value='Sign up' type="submit" placeholder="Submit" /></label>
             </form>
           </div>
           <div className="get-app">

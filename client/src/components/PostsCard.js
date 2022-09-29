@@ -74,7 +74,7 @@ function PostsCard({ post, userId, user }) {
     }
 
 
-    console.log(post.user.profile_image)
+
 
     
 

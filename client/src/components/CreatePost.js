@@ -29,9 +29,7 @@ function CreatePost({createClicked, setCreateClicked, setSubmitClicked}) {
             setPostObj(initialObj)
             setSubmitClicked(prev => !prev)
         })
-        // console.log(createClicked)
         setCreateClicked(false)
-        // console.log(createClicked)
     }
 
 

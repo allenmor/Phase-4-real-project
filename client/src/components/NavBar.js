@@ -20,6 +20,10 @@ function NavBar({createClicked, setCreateClicked, user}) {
     navigate(`/`);
   }
 
+  function editProfileClick(){
+    navigate(`/editprofile`);
+  }
+
   return (
     <div className='other-nav-div'>
         <div className='nav-bar'>
@@ -29,7 +33,7 @@ function NavBar({createClicked, setCreateClicked, user}) {
         <h2><span className='plane-symbol'>&#x2709;</span> Messages</h2>
         <h2><span className='heart-symbol'>&#9829;</span> Notifications</h2>
         <h2 className='create-link' onClick={handleCreateClicked}><span className='plus-symbol'>&#43;</span> Create</h2>
-        <h2><img className='nav-img' src={user.profile_image}></img>Profile</h2>
+        <h2 onClick={editProfileClick}><img className='nav-img' src={user.profile_image}></img>Profile</h2>
         <h2 onClick={handleLogoutClick} className='logout-btn'>Logout</h2>
         </div>
     </div>

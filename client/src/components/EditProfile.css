@@ -1,18 +1,18 @@
-.profile-div {
+.profile-divv {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
 }
-.profile-edit {
+.profile-editt {
     display: flex;
 }
 
-.profile-edit img {
+.profile-editt img {
     width: 6em;
     height: 6em;
     border-radius: 50%;
 }
-.posts-follow {
+.posts-followw {
     display: flex;
 }

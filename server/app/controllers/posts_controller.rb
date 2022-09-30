@@ -15,7 +15,11 @@ class PostsController < ApplicationController
             post_image: params[:post_image],
             description: params[:description]
         )
-
         render json: post
+    end
+
+    def user_posts
+        user = User.find_by!(id: params[:id])
+        render json:  user.posts
     end
 end

@@ -49,7 +49,6 @@ function App() {
     </div>
   );
 }
-{/* <Profile setUser={setUser} user={user} /> */}
-{/* <NavBar user ={user}createClicked={createClicked} setCreateClicked={setCreateClicked}/> */}
+
 
 export default App;

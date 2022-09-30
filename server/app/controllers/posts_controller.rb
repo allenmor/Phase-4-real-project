@@ -20,6 +20,6 @@ class PostsController < ApplicationController
 
     def user_posts
         user = User.find_by!(id: params[:id])
-        render json:  user.posts
+        render json: user.posts
     end
 end

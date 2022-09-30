@@ -1,8 +1,9 @@
 import React,{useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
+import CreatePost from './CreatePost';
 import './NavBar.css'
 
-function NavBar({createClicked, setLoggedInUser,setCreateClicked, user}) {
+function NavBar({createClicked, setSubmitClicked, setLoggedInUser,setCreateClicked, user}) {
 
   const navigate = useNavigate();
 
@@ -14,6 +15,7 @@ function NavBar({createClicked, setLoggedInUser,setCreateClicked, user}) {
   function handleHomeClick() {
     setCreateClicked(false)
     navigate(`/profile`);
+    console.log(createClicked)
   }
 
   function handleLogoutClick() {
@@ -24,9 +26,12 @@ function NavBar({createClicked, setLoggedInUser,setCreateClicked, user}) {
 
   function editProfileClick(){
     navigate(`/editprofile`);
+    setCreateClicked(false)
   }
   return (
+    <>
     <div className='other-nav-div'>
+        {createClicked ? <CreatePost setSubmitClicked={setSubmitClicked} setCreateClicked={setCreateClicked}/> : ''}
         <div className='nav-bar'>
         <h1 onClick={handleHomeClick} className='nav-title'>Chatter</h1>
         <h2 className='home-link' onClick={handleHomeClick}><span className='home-symbol'>&#x2302;</span> Home</h2>
@@ -38,6 +43,7 @@ function NavBar({createClicked, setLoggedInUser,setCreateClicked, user}) {
         <h2 onClick={handleLogoutClick} className='logout-btn'>Logout</h2>
         </div>
     </div>
+    </>
   )
 }
 

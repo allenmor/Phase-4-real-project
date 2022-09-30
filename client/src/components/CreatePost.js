@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 import './CreatePost.css'
 
 function CreatePost({createClicked, setCreateClicked, setSubmitClicked}) {
-    
+    const navigate = useNavigate();
+
     let initialObj = {post_image: '', description: ''}
     const [postObj, setPostObj] = useState(initialObj)
 
@@ -16,7 +19,7 @@ function CreatePost({createClicked, setCreateClicked, setSubmitClicked}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('http://10.129.2.23:8080/newpost', {
+        fetch('http://127.0.0.1:3000/newpost', {
             method: 'POST',
             headers: {
                 token: sessionStorage.getItem('jwt'),
@@ -30,12 +33,12 @@ function CreatePost({createClicked, setCreateClicked, setSubmitClicked}) {
             setSubmitClicked(prev => !prev)
         })
         setCreateClicked(false)
+        navigate(`/profile`);
     }
 
-
-
+    // style={!createClicked ? {display: 'none'} : {display: 'block'}}
   return (
-    <div style={!createClicked ? {display: 'none'} : {display: 'block'}} className='create-post-container'>
+    <div className='create-post-container'>
         <h2 className='h2-create-post'>Create Post</h2>
         <form onSubmit={handleSubmit}>
             <input className='post-input' onChange={handleChange} name='post_image' value={postObj.post_image} placeholder='Image' type='text'></input>

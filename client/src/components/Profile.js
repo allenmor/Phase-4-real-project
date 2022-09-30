@@ -2,26 +2,29 @@ import React from 'react'
 import {useState, useEffect} from 'react';
 import './Profile.css'
 import Posts from './Posts';
-import CreatePost from './CreatePost';
+// import CreatePost from './CreatePost';
 
 
 
-function Profile({setUser, user}) {
-
-    const [submitClicked, setSubmitClicked] = useState(false)
-    const [createClicked, setCreateClicked] = useState(false)
+function Profile({setUser, user, createClicked, setCreateClicked, submitClicked, setSubmitClicked}) {
 
 
+
+
+    function handleClick() {
+        setCreateClicked(false)
+    }
 
 
   return (
     // style={user.name ? {display: 'flex'} : {display: 'none'}}
-    <div className='profile-div'>
-        {/* <NavBar user ={user}createClicked={createClicked} setCreateClicked={setCreateClicked}/> */}
-        <CreatePost setSubmitClicked={setSubmitClicked} setCreateClicked={setCreateClicked} createClicked={createClicked}/>
+    <>
+        {/* <CreatePost setSubmitClicked={setSubmitClicked} setCreateClicked={setCreateClicked} createClicked={createClicked}/> */}
+    <div onClick={handleClick} className='profile-div'>
         <Posts user={user} submitClicked={submitClicked} createClicked={createClicked} setCreateClicked={setCreateClicked} userId={user.id}/>
         <p>suggestion</p>
         </div>
+    </>
   )
 }
 

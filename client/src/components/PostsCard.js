@@ -15,7 +15,7 @@ function PostsCard({ post, userId, user }) {
     function handleCommentClick(){
         setShowComments(prev => !prev)
         if (firstClicked) {
-            fetch(`http://10.129.2.23:8080/postcomments/${post.id}`)
+            fetch(`http://127.0.0.1:3000/postcomments/${post.id}`)
             .then(res => res.json())
             .then(data => {
                 setComments(data.reverse())
@@ -39,7 +39,7 @@ function PostsCard({ post, userId, user }) {
 
     function handleCommentSubmit(e){
       e.preventDefault()
-      fetch('http://10.129.2.23:8080/newcomment', {
+      fetch('http://127.0.0.1:3000/newcomment', {
             method: 'POST',
             headers: {
                 token: sessionStorage.getItem('jwt'),
@@ -58,7 +58,7 @@ function PostsCard({ post, userId, user }) {
     }
 
     function handleLikeClicked(){
-      fetch('http://10.129.2.23:8080/newlike', {
+      fetch('http://127.0.0.1:3000/newlike', {
             method: 'POST',
             headers: {
                 token: sessionStorage.getItem('jwt'),

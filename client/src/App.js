@@ -12,16 +12,12 @@ function App() {
 
   const [createClicked, setCreateClicked] = useState(false)
   const [loggedInUser, setLoggedInUser] = useState({name: ''})
-  // const pathname = window.location.pathname 
-  // console.log(pathname);
-  // if (pathname === "/" && loggedInUser.name){
-  //   navigate("/profile")
-  // }
+  const [submitClicked, setSubmitClicked] = useState(false)
 
   useEffect(() => {
     let token = sessionStorage.getItem('jwt')
     if(token && !loggedInUser.name) {
-        fetch('http://10.129.2.23:8080/me', {
+        fetch('http://127.0.0.1:3000/me', {
             headers: {
                 token: token,
                 'Content-Type': 'application/json'
@@ -38,8 +34,8 @@ function App() {
     <Routes>
       <Route path='/' element={<SignupLogin setLoggedInUser={setLoggedInUser}/>}/>
       <Route path='/profile' element={<>
-        <NavBar user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>
-        <Profile setUser={setLoggedInUser} user={loggedInUser}/>
+        <NavBar setSubmitClicked={setSubmitClicked} user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>
+        <Profile submitClicked={submitClicked} setSubmitClicked={setSubmitClicked} createClicked={createClicked} setCreateClicked={setCreateClicked} setUser={setLoggedInUser} user={loggedInUser}/>
       </>}/>
       <Route path='/editprofile' element={<>
         <NavBar user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>

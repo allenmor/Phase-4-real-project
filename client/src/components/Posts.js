@@ -9,12 +9,12 @@ function Posts({userId, user, createClicked, submitClicked}) {
     const [posts, setPosts] = useState([])
     
     useEffect(() => {
-        fetch('http://10.129.2.23:8080/posts')
+        fetch('http://127.0.0.1:3000/posts')
         .then(res => res.json())
         .then(data => {
             setPosts(data.reverse())
         })
-    },[createClicked, submitClicked])
+    },[submitClicked])
 
 
   return (

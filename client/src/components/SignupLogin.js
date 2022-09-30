@@ -22,7 +22,7 @@ function SignupLogin({setLoggedInUser}) {
     function handleSignUpSubmit(e){
         e.preventDefault()
         console.log(signUp)
-        fetch('http://10.129.2.23:8080/newuser', {
+        fetch('http://127.0.0.1:3000/newuser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ function SignupLogin({setLoggedInUser}) {
     // LOG IN
     function handleLogInSubmit(e) {
         e.preventDefault()
-        fetch('http://10.129.2.23:8080/login',{
+        fetch('http://127.0.0.1:3000/login',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,6 +84,7 @@ function SignupLogin({setLoggedInUser}) {
             console.log(user)
             navigate(`/profile`);
         })
+        console.log('yo')
     }
     
 

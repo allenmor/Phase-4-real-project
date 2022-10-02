@@ -75,6 +75,11 @@ function PostsCard({ post, userId, user }) {
 
 
 
+    // Clicked on user in posts 
+
+    function handleUserNameClick() {
+      
+    }
 
     
 
@@ -82,7 +87,7 @@ function PostsCard({ post, userId, user }) {
     <div className="each-post">
       <div className="post-user-info">
         <img src={post.user.profile_image}></img>
-        <p>{post.user.name}</p>
+        <p onClick={handleUserNameClick}>{post.user.name}</p>
       </div>
       <div  className="image-description">
         <div className="post-img" >

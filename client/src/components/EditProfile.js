@@ -8,7 +8,7 @@ function EditProfile({ user, setUser }) {
   let initialImage = { profile_image: "" };
   const [posts, setPosts] = useState([]);
   const [editNameClicked, setEditNameClicked] = useState(true);
-  const [editProfileImageClicked, setProfileImageClicked] = useState(true);
+  const [editProfileImageClicked, setProfileImageClicked] = useState(false);
   const [userName, setuserName] = useState(initialName);
   const [userImage, setUserImage] = useState(initialImage);
 

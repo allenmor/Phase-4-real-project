@@ -3,16 +3,75 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(250,250,250);
+    width: 84%;
 }
 .profile-editt {
     display: flex;
+    align-items: center;
 }
 
-.profile-editt img {
-    width: 6em;
-    height: 6em;
+.user-profile-image-div {
+    display: flex;
+    flex-direction: column;
+}
+.user-profile-image-div img {
+    width: 10em;
+    height: 10em;
     border-radius: 50%;
+    margin-right: 10em;
+    border: 2px solid rgb(245,1,126);
+    padding: 0.2em;
+
+
+}
+
+.image-change-form {
+    margin-top: 2.5em;
 }
 .posts-followw {
     display: flex;
+
 }
+
+.profile-info {
+    border-bottom: 2px solid black;
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    margin-top: 5em;
+    margin-left: 3.5em;
+
+}
+
+
+.all-edit-posts-div {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-column-gap: 10px;
+    margin-left: 7em;
+
+}
+.each-edit-post img{
+    width: 18em;
+    height: 18em;
+    margin: 1.5em;
+
+}
+
+.each-edit-post img:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+.profile-editt .fa{
+    cursor: pointer;
+    margin-left: 1em;
+    margin-bottom: 0.7em;
+}
+
+.user-profile-image-div .fa {
+    position: absolute;
+    cursor: pointer;
+}
+

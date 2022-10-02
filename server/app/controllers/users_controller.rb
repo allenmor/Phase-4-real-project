@@ -37,6 +37,21 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def update_name
+        token = request.headers['token']
+        user_id = decode(token)
+        user = User.find_by!(id: user_id)
+        user.update(name: params[:name])
+        render json: user
+    end
+    def update_image
+        token = request.headers['token']
+        user_id = decode(token)
+        user = User.find_by!(id: user_id)
+        user.update(profile_image: params[:profile_image])
+        render json: user
+    end
+
     private
     def render_unprocessable_entity_response(invalid)
         render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity

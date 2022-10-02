@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import './CreatePost.css'
 
-function CreatePost({createClicked, setCreateClicked, setSubmitClicked}) {
+function CreatePost({setCreateClicked, setSubmitClicked}) {
     const navigate = useNavigate();
 
     let initialObj = {post_image: '', description: ''}

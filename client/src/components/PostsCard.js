@@ -84,10 +84,10 @@ function PostsCard({ post, userId, user }) {
         <img src={post.user.profile_image}></img>
         <p>{post.user.name}</p>
       </div>
-      <div className="image-description">
-        <div  className="post-img">
-
-        <img src={post.post_image} />
+      <div  className="image-description">
+        <div className="post-img" >
+          <div style={{backgroundImage: `url(${post.post_image})`}} className="background-image"></div>
+          <img src={post.post_image}/>
         </div>
         <button className='like-btn' onClick={handleLikeClicked}>&#x2665;</button>
         {likes === 0 ? <p></p> : <p className="likes-amount"><img className="liked-profile-img" src={user.profile_image}></img>Liked by&nbsp;<span className="likes-first-name">{user.name}</span>&nbsp;and {likes >= 1 ?  likes - 1 : likes} others</p> }

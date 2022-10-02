@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   post '/newlike', to: 'likes#new_like'
   post '/newpost', to: 'posts#new_post'
   get '/userposts/:id', to: 'posts#user_posts'
+
+  patch '/updatename', to: 'users#update_name'
+  patch '/updateimage', to: 'users#update_image'
 end

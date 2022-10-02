@@ -14,6 +14,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({name: ''})
   const [submitClicked, setSubmitClicked] = useState(false)
 
+
   useEffect(() => {
     let token = sessionStorage.getItem('jwt')
     if(token && !loggedInUser.name) {
@@ -25,10 +26,15 @@ function App() {
         })
         .then(res => res.json())
         .then(data => {
-           setLoggedInUser({...data})
-        })
-    }
+          // console.log(data)
+          console.log(data)
+           setLoggedInUser(data)
+          })
+        }
+
 },[])
+
+
   return (
     <div className='app-div'> 
     <Routes>

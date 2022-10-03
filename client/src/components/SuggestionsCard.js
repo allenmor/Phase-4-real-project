@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import './Suggestions.css'
+import {useNavigate} from 'react-router-dom'
 
 function SuggestionsCard({suggestion}) {
-
+    const navigate = useNavigate();
     const [followClicked, setFollowClicked] = useState(false)
 
     function handleFollowClick() {
@@ -22,8 +23,8 @@ function SuggestionsCard({suggestion}) {
           })
     }
   return (
-    <div className='each-suggestion'>
-        <div className='image-name-p'>
+    <div  className='each-suggestion'>
+        <div onClick={()=>navigate(`/user/${suggestion.id}`)} className='image-name-p'>
 
         <img src={suggestion.profile_image} />
         <div>

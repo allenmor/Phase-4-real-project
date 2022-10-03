@@ -34,9 +34,7 @@ const [suggestions, setSuggestions] = useState([])
 
 
   return (
-    // style={user.name ? {display: 'flex'} : {display: 'none'}}
     <>
-        {/* <CreatePost setSubmitClicked={setSubmitClicked} setCreateClicked={setCreateClicked} createClicked={createClicked}/> */}
     <div onClick={handleClick} className='profile-div'>
         <Posts user={user} submitClicked={submitClicked} createClicked={createClicked} setCreateClicked={setCreateClicked} userId={user.id}/>
         <div className='suggestions-div'>

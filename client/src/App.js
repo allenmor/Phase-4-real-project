@@ -1,6 +1,7 @@
 import './App.css';
 import SignupLogin from './components/SignupLogin';
 import Profile from './components/Profile';
+import IndividualProfile from './components/IndividualProfile';
 import EditProfile from './components/EditProfile';
 import { Route, Routes } from 'react-router-dom';
 import { useState,useEffect } from 'react';
@@ -46,6 +47,10 @@ function App() {
       <Route path='/editprofile' element={<>
         <NavBar user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>
         <EditProfile setUser={setLoggedInUser} user={loggedInUser}/>
+      </>}/>
+      <Route path='/user/:id' element={<>
+        <NavBar user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>
+       <IndividualProfile/>
       </>}/>
     </Routes>
     </div>

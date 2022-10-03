@@ -1,6 +1,6 @@
 class PostSerializer < ActiveModel::Serializer
 
-  attributes :id, :post_image, :description, :number_of_comments, :number_of_likes, :first_liked
+  attributes :id, :post_image, :user_id, :description, :number_of_comments, :number_of_likes, :first_liked
   belongs_to :user
 
   def first_liked
@@ -11,4 +11,6 @@ class PostSerializer < ActiveModel::Serializer
       
     end
   end
+
+  
 end

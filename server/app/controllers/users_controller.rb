@@ -52,6 +52,19 @@ class UsersController < ApplicationController
         render json: user
     end
 
+
+  def suggestions 
+    token = request.headers['token']
+    user_id = decode(token)
+    # try with not 
+    user = User.find_by!(id: user_id)
+    arr = User.where.not(id: user.followings.pluck('id'))
+    arr2 = arr.where.not(id: user_id)
+
+    render json: arr2
+    # map 
+  end
+
     private
     def render_unprocessable_entity_response(invalid)
         render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity

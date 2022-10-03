@@ -1,0 +1,96 @@
+.suggestions-div {
+    font-size: 0.85em;
+    width: 25em;
+    margin-top: 1.7em;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 45em;
+    position: sticky;
+    top: 1.7em;
+}
+
+.each-suggestion {
+
+}
+
+.each-suggestion button {
+    right: 0;
+}
+
+.suggestions-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.suggestions-user-info p {
+    font-weight: bold;
+}
+
+
+
+.suggestions-user-info img {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    padding: 1em;
+    margin-right: 0.2em;
+}
+
+.suggestions-for-you {
+    margin-top: 0;
+    margin-left: 1em;
+    color: gray;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.each-suggestion img {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+.each-suggestion {
+    display: flex;
+    justify-content: space-between;
+}
+.suggestion-username {
+    font-weight: bold;
+}
+
+.follow-btn {
+    background: none;
+	color: blue;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    font-weight: bold;
+
+}
+.followed-btn {
+    background: none;
+	color: rgb(8, 8, 8);
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    font-weight: bold;
+
+}
+.image-name-p {
+    display: flex;
+}
+
+.image-name-p img {
+    width: 2.5em;
+    height: 2.5em;
+    padding: 1em;
+}
+
+
+.suggestion-for-you {
+    color: gray;
+    font-weight: bold;
+    font-size: 0.8em;
+}

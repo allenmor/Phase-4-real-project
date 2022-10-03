@@ -2,7 +2,10 @@ class PostsController < ApplicationController
 
 
     def index
-        posts = Post.all
+        token = request.headers['token']
+        user_id = decode(token)
+        user = User.find(user_id)
+        posts = Post.where(user_id: user.followings.pluck('id'))
         render json: posts
     end
 

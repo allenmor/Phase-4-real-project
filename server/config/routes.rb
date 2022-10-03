@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   patch '/updatename', to: 'users#update_name'
   patch '/updateimage', to: 'users#update_image'
+  get '/suggestions', to: 'users#suggestions'
+  post '/follows', to: 'follows#create' 
 end

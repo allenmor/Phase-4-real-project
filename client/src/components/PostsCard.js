@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Post.css";
 
 function PostsCard({ post, userId, user }) {
 
+    const navigate = useNavigate();
     const [comments, setComments] = useState([])
     const [firstClicked, setFirstClicked] = useState(true)
     const [showComments, setShowComments] = useState(false)
@@ -85,7 +87,7 @@ function PostsCard({ post, userId, user }) {
 
   return (
     <div className="each-post">
-      <div className="post-user-info">
+      <div onClick={()=>navigate(`/user/${post.user.id}`)} className="post-user-info">
         <img src={post.user.profile_image}></img>
         <p onClick={handleUserNameClick}>{post.user.name}</p>
       </div>

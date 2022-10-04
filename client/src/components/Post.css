@@ -22,6 +22,7 @@
     margin-bottom: 0;
     margin-top: 0.1em;
     align-items: center;
+    cursor: pointer;
 }
 
 .post-user-info img{
@@ -50,14 +51,15 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 500;
+    z-index: 1;
  
 }
 
 .post-img img {
    max-width: 100%;
    max-height: 26em;
-   z-index: 1000;
+   z-index: 2;
+   
 }
 
 .background-image{

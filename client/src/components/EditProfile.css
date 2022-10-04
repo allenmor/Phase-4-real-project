@@ -31,7 +31,7 @@
 }
 .posts-followw {
     display: flex;
-
+    justify-content: space-between;
 }
 
 .profile-info {
@@ -40,7 +40,7 @@
     display: grid;
     grid-template-columns: repeat(2, 40%);
     margin-top: 5em;
-    margin-left: 3.5em;
+    margin-left: 11.5em;
 
 }
 
@@ -48,14 +48,14 @@
 .all-edit-posts-div {
     display: grid;
     grid-template-columns: repeat(3, 30%);
-    grid-column-gap: 10px;
+    grid-column-gap: 5em;
     margin-left: 7em;
 
 }
 .each-edit-post img{
     width: 18em;
     height: 18em;
-    margin: 1.5em;
+    margin-top: 1.3em;
 
 }
 

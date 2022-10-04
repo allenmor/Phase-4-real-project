@@ -80,12 +80,14 @@
 }
 .image-name-p {
     display: flex;
+    cursor: pointer;
 }
 
 .image-name-p img {
     width: 2.5em;
     height: 2.5em;
     padding: 1em;
+
 }
 
 

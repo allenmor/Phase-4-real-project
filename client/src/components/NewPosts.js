@@ -7,10 +7,16 @@ function NewPosts() {
     const [newPostUsers, setNewPostUsers] = useState([])
 
     useEffect(() => {
-        fetch('http://127.0.0.1:3000/users')
+    fetch('http://127.0.0.1:3000/newposts', {
+        headers: {
+            token: sessionStorage.getItem('jwt'),
+            'Content-Type': 'application/json'
+        }
+    })
         .then(res => res.json())
         .then(data => {
             setNewPostUsers(data)
+            console.log(data)
         })
     },[])
 

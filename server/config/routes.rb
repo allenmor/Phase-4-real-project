@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get '/suggestions', to: 'users#suggestions'
   post '/follows', to: 'follows#create' 
   get '/users/:id', to: 'users#show'
+  get '/newposts', to: 'users#new_posts'
 end

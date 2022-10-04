@@ -138,9 +138,9 @@ function EditProfile({ user, setUser }) {
           </div>
 
           <div className="posts-followw">
-            <h3>{posts.length} Posts</h3>
-            <h3>... Followers</h3>
-            <h3>... Following</h3>
+            <h3>{posts.length}&nbsp;Posts</h3>
+            <h3>{user.amount_followers}&nbsp;Followers</h3>
+            <h3>{user.amount_following}&nbsp;Following</h3>
           </div>
           <div className="bio">
             <h4>{user.name}</h4>

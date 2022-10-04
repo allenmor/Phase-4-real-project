@@ -27,8 +27,6 @@ function App() {
         })
         .then(res => res.json())
         .then(data => {
-          // console.log(data)
-          console.log(data)
            setLoggedInUser(data)
           })
         }

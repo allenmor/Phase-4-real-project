@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by!(id: params[:id])
-        render json: user
+        render json: user, serializer: AddPostsToEachUserSerializer
     end
     # SIGN UP NEW USER
     def newuser
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         token = request.headers['token']
         user_id = decode(token)
         user = User.find_by!(id: user_id)
-        render json: user
+        render json: user, serializer: AddFollowersFollowingToUserSerializer
     end
 
     def update_name
@@ -64,6 +64,17 @@ class UsersController < ApplicationController
     # try with not 
     user = User.find_by!(id: user_id)
     arr = User.where.not(id: user.followings.pluck('id'))
+    arr2 = arr.where.not(id: user_id)
+
+    render json: arr2
+    # map 
+  end
+  def new_posts 
+    token = request.headers['token']
+    user_id = decode(token)
+    # try with not 
+    user = User.find_by!(id: user_id)
+    arr = User.where(id: user.followings.pluck('id'))
     arr2 = arr.where.not(id: user_id)
 
     render json: arr2

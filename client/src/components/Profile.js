@@ -21,7 +21,6 @@ const [suggestions, setSuggestions] = useState([])
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data)
     setSuggestions(data)
   })
   },[])

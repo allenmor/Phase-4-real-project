@@ -1,7 +1,7 @@
 import React from 'react'
 import './EditProfile.css'
 
-function EditProfilePostCard({post}) {
+function EditProfilePostCard({post, posts, setPosts}) {
 
 
   function handleDeletePostClick() {
@@ -10,6 +10,14 @@ function EditProfilePostCard({post}) {
       headers: {
           'Content-type': 'application/json'
       }
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data['status'] == 'OK') {
+      console.log(posts)
+      let filtered = posts.filter(el=> el.id !== post.id)
+      setPosts(filtered)
+    }
   })
   }
 

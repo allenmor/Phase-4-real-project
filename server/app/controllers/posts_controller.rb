@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     def user_post_delete
         a = Post.find_by!(id: params[:id])
         a.destroy
-        head :no_content
+        render json: {status: 'OK'}
     end
 
     def new_post 

@@ -9,7 +9,7 @@
 Post.destroy_all
 Comment.destroy_all
 
-20.times do |t|
+200.times do |t|
     Post.create(
         user_id: User.all.sample.id,
         post_image: Faker::LoremFlickr.image,
@@ -17,7 +17,7 @@ Comment.destroy_all
     )
 end
 
-40.times do |t|
+400.times do |t|
     Comment.create(
         user_id: User.all.sample.id,
         post_id: Post.all.sample.id,

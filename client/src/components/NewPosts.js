@@ -16,7 +16,7 @@ function NewPosts() {
         .then(res => res.json())
         .then(data => {
             setNewPostUsers(data)
-            console.log(data)
+
         })
     },[])
 

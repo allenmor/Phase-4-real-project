@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   post '/follows', to: 'follows#create' 
   get '/users/:id', to: 'users#show'
   get '/newposts', to: 'users#new_posts'
+
+  delete '/userpostdelete/:id', to: 'posts#user_post_delete'
 end

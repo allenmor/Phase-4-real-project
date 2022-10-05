@@ -8,6 +8,12 @@ class UsersController < ApplicationController
         render json: users
     end
 
+    def user_post_delete
+        post.find_by!(id: params[:id])
+        post.destroy
+        head :no_content
+    end
+
     def show
         user = User.find_by!(id: params[:id])
         render json: user, serializer: AddPostsToEachUserSerializer
@@ -29,7 +35,8 @@ class UsersController < ApplicationController
 
         if user 
             token = encode(user.id)
-            render json: {user: user, token: token}, status: :ok
+            serialzied_user = user.as_json(only: [:id, :name, :profile_image, :bio],methods: [:amount_followers, :amount_following])
+            render json: {user: serialzied_user, token: token}, status: :ok
         else
             render json: {error: 'User doesnt exist'}, status: :unprocessable_entity
         end

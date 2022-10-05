@@ -14,6 +14,7 @@ function App() {
   const [createClicked, setCreateClicked] = useState(false)
   const [loggedInUser, setLoggedInUser] = useState({name: ''})
   const [submitClicked, setSubmitClicked] = useState(false)
+  
 
 
   useEffect(() => {
@@ -27,17 +28,22 @@ function App() {
         })
         .then(res => res.json())
         .then(data => {
-           setLoggedInUser(data)
+          console.log(data)
+             setLoggedInUser(data)
           })
         }
 
-},[])
+      },[])
+      
+console.log(loggedInUser)
+
+
 
 
   return (
     <div className='app-div'> 
     <Routes>
-      <Route path='/' element={<SignupLogin setLoggedInUser={setLoggedInUser}/>}/>
+      <Route path='/' element={<SignupLogin loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
       <Route path='/profile' element={<>
         <NavBar setSubmitClicked={setSubmitClicked} user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>
         <Profile submitClicked={submitClicked} setSubmitClicked={setSubmitClicked} createClicked={createClicked} setCreateClicked={setCreateClicked} setUser={setLoggedInUser} user={loggedInUser}/>

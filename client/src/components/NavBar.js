@@ -8,6 +8,7 @@ function NavBar({createClicked, setSubmitClicked, setLoggedInUser,setCreateClick
   const navigate = useNavigate();
 
 
+
   function handleCreateClicked(){
     setCreateClicked(true)
   }
@@ -15,7 +16,7 @@ function NavBar({createClicked, setSubmitClicked, setLoggedInUser,setCreateClick
   function handleHomeClick() {
     setCreateClicked(false)
     navigate(`/profile`);
-    console.log(createClicked)
+
   }
 
   function handleLogoutClick() {

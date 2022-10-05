@@ -52,6 +52,16 @@
     margin-left: 7em;
 
 }
+
+.each-edit-post{
+    z-index: 1;
+}
+.delete-btn {
+    font-size: 1em;
+    position: absolute;
+    z-index: 2;
+    margin-top: 1.2em;
+}
 .each-edit-post img{
     width: 18em;
     height: 18em;

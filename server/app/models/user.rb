@@ -21,4 +21,10 @@ class User < ApplicationRecord
 
     validates :name, presence: true, uniqueness: true
 
+    def amount_followers
+      followers.length
+    end
+    def amount_following
+      followings.length
+    end
 end

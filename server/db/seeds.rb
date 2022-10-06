@@ -8,8 +8,9 @@
 
 Post.destroy_all
 Comment.destroy_all
+Like.destroy_all
 
-20.times do |t|
+300.times do |t|
     Post.create(
         user_id: User.all.sample.id,
         post_image: Faker::LoremFlickr.image,
@@ -17,10 +18,17 @@ Comment.destroy_all
     )
 end
 
-40.times do |t|
+3000.times do |t|
     Comment.create(
         user_id: User.all.sample.id,
         post_id: Post.all.sample.id,
         description: Faker::Lorem.sentence
+    )
+end
+
+40000.times do |t|
+    Like.create(
+        user_id: User.all.sample.id,
+        post_id: Post.all.sample.id,
     )
 end

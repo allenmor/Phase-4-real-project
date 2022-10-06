@@ -9,6 +9,12 @@ class PostsController < ApplicationController
         render json: posts
     end
 
+    def user_post_delete
+        a = Post.find_by!(id: params[:id])
+        a.destroy
+        render json: {status: 'OK'}
+    end
+
     def new_post 
         token = request.headers['token']
         user_id = decode(token)

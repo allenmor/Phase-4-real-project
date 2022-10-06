@@ -4,7 +4,7 @@ import "./SignupLogin.css";
 import { Link, useNavigate } from "react-router-dom";
 // import Profile from "./Profile";
 
-function SignupLogin({setLoggedInUser}) {
+function SignupLogin({setLoggedInUser, loggedInUser}) {
   
     let initialSignup = {name: '', password: ''}
     const [signUp, setSignUp] = useState(initialSignup)
@@ -65,34 +65,21 @@ function SignupLogin({setLoggedInUser}) {
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
             sessionStorage.setItem("jwt", data.token)
-            setUser({
-                ...user,
-                id: data.user.id,
-                name: data.user.name,
-                bio: data.user.bio,
-                profile_image: data.user.profile_image
-            })
-            setLoggedInUser({
-                ...user,
-                id: data.user.id,
-                name: data.user.name,
-                bio: data.user.bio,
-                profile_image: data.user.profile_image
-            })
-            console.log(user)
+            setUser(data.user)
+            setLoggedInUser(data.user)
             navigate(`/profile`);
         })
-        console.log('yo')
     }
+    
+
+
     
 
 
 
   return (
       <>
-      {/* <Profile setUser={setUser} user={user} /> */}
     <div style={ user.name ? {display: 'none'} : {display: 'block'}} className="with-letters">
       <div className="signup-page">
         <img

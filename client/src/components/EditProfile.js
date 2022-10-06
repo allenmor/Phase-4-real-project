@@ -12,8 +12,10 @@ function EditProfile({ user, setUser }) {
   const [userName, setuserName] = useState(initialName);
   const [userImage, setUserImage] = useState(initialImage);
 
+
+
+
   useEffect(() => {
-    // let token = sessionStorage.getItem('jwt')
     if (user.id) {
       fetch(`http://127.0.0.1:3000/userposts/${user.id}`)
         .then((res) => res.json())
@@ -33,7 +35,6 @@ function EditProfile({ user, setUser }) {
       ...userName,
       [e.target.name]: e.target.value,
     });
-    console.log(userName.name);
   }
 
   function handleNameChangeSubmit(e) {
@@ -48,7 +49,6 @@ function EditProfile({ user, setUser }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         user.name = data.name;
         setuserName(initialName);
         setEditNameClicked(true);
@@ -66,8 +66,10 @@ function EditProfile({ user, setUser }) {
       ...userImage,
       [e.target.name]: e.target.value,
     });
-    console.log(userImage);
   }
+
+
+
 
   function handleProfileImageSubmit(e) {
     e.preventDefault();
@@ -150,7 +152,7 @@ function EditProfile({ user, setUser }) {
       </div>
       <div className="all-edit-posts-div">
         {posts.map((el, i) => {
-          return <EditProfilePostCard post={el} key={i} />;
+          return <EditProfilePostCard posts={posts} setPosts={setPosts} post={el} key={i} />;
         })}
       </div>
     </div>

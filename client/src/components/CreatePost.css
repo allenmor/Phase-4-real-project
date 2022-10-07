@@ -17,6 +17,7 @@
 .h2-create-post {
     border-bottom: 1px solid gray;
     background-color: rgb(255,255,255);
+    text-align: center;
 }
 
 .create-post-container form {

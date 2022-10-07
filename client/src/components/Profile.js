@@ -36,6 +36,7 @@ const [suggestions, setSuggestions] = useState([])
     <>
     <div onClick={handleClick} className='profile-div'>
         <Posts user={user} submitClicked={submitClicked} createClicked={createClicked} setCreateClicked={setCreateClicked} userId={user.id}/>
+        </div>
         <div className='suggestions-div'>
           <div className='suggestions-user-info'>
             <img src={user.profile_image}/>
@@ -45,7 +46,6 @@ const [suggestions, setSuggestions] = useState([])
         {suggestions.map((el, i) => {
           return <SuggestionsCard suggestion={el} key={i}/>
         })}
-        </div>
         </div>
     </>
   )

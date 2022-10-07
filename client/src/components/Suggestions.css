@@ -4,7 +4,8 @@
     margin-top: 1.7em;
     overflow: scroll;
     overflow-x: hidden;
-    height: 45em;
+
+    height: 100vh;
     position: sticky;
     top: 1.7em;
 }

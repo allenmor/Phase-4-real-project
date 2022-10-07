@@ -126,6 +126,8 @@ function SignupLogin({setLoggedInUser, loggedInUser}) {
           </div>
         </div>
       </div>
+      <div className="bottom-letters">
+
       <p className="text-under">
         Shmeta About Blog Jobs Help API Privacy Terms Top Accounts Hashtags
         Locations Chatter Lite Contact Uploading & Non-Users Dance Food &
@@ -133,6 +135,7 @@ function SignupLogin({setLoggedInUser, loggedInUser}) {
 
       </p>
         <p className="text-under">English © 2022 Chatter from Shmeta</p>
+      </div>
     </div>
     </>
   );

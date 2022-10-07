@@ -11,7 +11,7 @@
 .other-nav-div {
     border: 1px solid rgb(203, 202, 202);
     background-color: rgb(255,255,255);
-    width: 15em;
+    width: 27vh;
     border-top: none;
     border-bottom: none;
 }
@@ -80,5 +80,6 @@
 }
 
 .logout-btn {
-    margin-top: 20em;
+    position: fixed;
+    bottom: 0;
 }

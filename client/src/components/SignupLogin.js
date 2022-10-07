@@ -41,7 +41,7 @@ function SignupLogin({setLoggedInUser, loggedInUser}) {
                 bio: data.user.bio,
                 profile_image: data.user.profile_image
             })
-            navigate(`/profile`);
+            navigate(`/explore`);
         })
     }
 

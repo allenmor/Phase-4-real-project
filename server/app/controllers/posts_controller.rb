@@ -9,6 +9,10 @@ class PostsController < ApplicationController
         render json: posts|user.posts
     end
 
+    def explore 
+        render json: Post.all
+    end
+
     def user_post_delete
         a = Post.find_by!(id: params[:id])
         a.destroy

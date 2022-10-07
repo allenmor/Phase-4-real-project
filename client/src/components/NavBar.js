@@ -29,6 +29,11 @@ function NavBar({createClicked, setSubmitClicked, setLoggedInUser,setCreateClick
     navigate(`/editprofile`);
     setCreateClicked(false)
   }
+
+  function handleExploreClick() {
+    navigate(`/explore`);
+    setCreateClicked(false)
+  }
   return (
     <>
     <div className='other-nav-div'>
@@ -36,7 +41,7 @@ function NavBar({createClicked, setSubmitClicked, setLoggedInUser,setCreateClick
         <div className='nav-bar'>
         <h1 onClick={handleHomeClick} className='nav-title'>Chatter</h1>
         <h2 className='home-link' onClick={handleHomeClick}><span className='home-symbol'>&#x2302;</span> Home</h2>
-        <h2><span className='magnify-symbol'>&#x1F50D;</span> Explore</h2>
+        <h2 onClick={handleExploreClick}><span  className='magnify-symbol'>&#x1F50D;</span> Explore</h2>
         <h2><span className='plane-symbol'>&#x2709;</span> Messages</h2>
         <h2><span className='heart-symbol'>&#9829;</span> Notifications</h2>
         <h2 className='create-link' onClick={handleCreateClicked}><span className='plus-symbol'>&#43;</span> Create</h2>

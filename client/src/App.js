@@ -6,6 +6,7 @@ import EditProfile from './components/EditProfile';
 import { Route, Routes } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import NavBar from './components/NavBar';
+import Explore from './components/Explore';
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -47,6 +48,10 @@ function App() {
       <Route path='/profile' element={<>
         <NavBar setSubmitClicked={setSubmitClicked} user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>
         <Profile submitClicked={submitClicked} setSubmitClicked={setSubmitClicked} createClicked={createClicked} setCreateClicked={setCreateClicked} setUser={setLoggedInUser} user={loggedInUser}/>
+      </>}/>
+      <Route path='/explore' element={<>
+        <NavBar setSubmitClicked={setSubmitClicked} user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>
+        <Explore user={loggedInUser} userId={loggedInUser.id}/>
       </>}/>
       <Route path='/editprofile' element={<>
         <NavBar user ={loggedInUser} setLoggedInUser={setLoggedInUser} createClicked={createClicked} setCreateClicked={setCreateClicked}/>

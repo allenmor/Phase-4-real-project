@@ -6,7 +6,7 @@ class PostsController < ApplicationController
         user_id = decode(token)
         user = User.find(user_id)
         posts = Post.where(user_id: user.followings.pluck('id'))
-        render json: posts
+        render json: posts|user.posts
     end
 
     def user_post_delete

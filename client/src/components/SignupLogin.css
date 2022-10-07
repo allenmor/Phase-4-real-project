@@ -3,7 +3,7 @@
 .with-letters {
     display: flex;
     flex-direction: column;
-    max-width: 99%;
+    width: 100vw;
     background-color: rgba(204, 201, 201, 0.531);
 }
 .back-phone {
@@ -37,13 +37,22 @@
     border-radius: 5px;
     border: 1px solid rgb(198, 195, 195);
 }
-
+.bottom-letters {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
 .signup-page {
     max-width: 99%;
-    height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -67%);
 }
 
 .login-title {

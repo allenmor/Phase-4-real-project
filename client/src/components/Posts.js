@@ -17,6 +17,7 @@ function Posts({userId, user, createClicked, submitClicked}) {
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data)
             setPosts(data.reverse())
         })
     },[submitClicked])

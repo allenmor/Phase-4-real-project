@@ -13,7 +13,7 @@ function Profile({setUser, user, createClicked, setCreateClicked, submitClicked,
 const [suggestions, setSuggestions] = useState([])
 
   useEffect(()=>{
-    fetch('http://127.0.0.1:3000/suggestions', {
+    fetch('http://10.129.2.23:3000/suggestions', {
       headers: {
           token: sessionStorage.getItem('jwt'),
           'Content-Type': 'application/json'

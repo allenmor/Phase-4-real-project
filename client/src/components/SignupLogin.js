@@ -22,7 +22,7 @@ function SignupLogin({setLoggedInUser, loggedInUser}) {
     function handleSignUpSubmit(e){
         e.preventDefault()
         console.log(signUp)
-        fetch('http://127.0.0.1:3000/newuser', {
+        fetch('http://10.129.2.23:3000/newuser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ function SignupLogin({setLoggedInUser, loggedInUser}) {
     // LOG IN
     function handleLogInSubmit(e) {
         e.preventDefault()
-        fetch('http://127.0.0.1:3000/login',{
+        fetch('http://10.129.2.23:3000/login',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -6,7 +6,7 @@ function Explore({user, userId}) {
     const [allPosts, setAllPosts] = useState([])
 
     useEffect(()=>{
-    fetch('http://127.0.0.1:3000/explore')
+    fetch('http://10.129.2.23:3000/explore')
     .then(res => res.json())
     .then(data => {
         setAllPosts(data)

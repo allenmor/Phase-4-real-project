@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     let token = sessionStorage.getItem('jwt')
     if(token && !loggedInUser.name) {
-        fetch('http://127.0.0.1:3000/me', {
+        fetch('http://10.129.2.23:3000/me', {
             headers: {
                 token: token,
                 'Content-Type': 'application/json'
